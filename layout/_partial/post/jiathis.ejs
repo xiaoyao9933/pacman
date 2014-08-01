@@ -12,8 +12,10 @@
     data_track_clickback:true,
     sm:"copy,renren,cqq",
     pic:"<%- item.photos %>",
-    summary:"",
-    <% if (theme.jiathis.tsina){ %> ralateuid:{"tsina":"<%= theme.jiathis.tsina %>"},hideMore:false}
+    summary:""
+    <% if (theme.jiathis.tsina){ %> ,ralateuid:{"tsina":"<%= theme.jiathis.tsina %>"},hideMore:false}
+    <% } else { %>
+    }
     <% } %>
   </script> 
 <script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=

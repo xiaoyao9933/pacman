@@ -78,10 +78,10 @@ $(document).ready(function(){
 });
 </script>
 <% } %>
-<% if ((page.layout=='post'||page.layout=='page')&&!theme.jiathis.enable) { %>
+<% if ((page.layout=='post'||page.layout=='page')&&theme.jiathis.enable) { %>
 <script type="text/javascript">
 $(document).ready(function(){ 
-  var $this = $('.share'),
+  var $this = $('#share'),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
       title = $this.attr('data-title'),
@@ -96,6 +96,7 @@ $(document).ready(function(){
   '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
   '<span title="Share to"></span>'
   ].join('');
+  alert($this)
   $this.append(html);
   $('.article-share-qrcode').click(function(){
     var imgSrc = $('#qrcode-pic').attr('data-src');
@@ -161,4 +162,11 @@ $(document).ready(function(){
 }); 
 </script>
 <% } %>
-<%- partial('google_analytics') %>
+<%- partial('baidu_tongji') %>
+<% if (theme.totop){ %>
+<%- partial('totop') %>
+<script src="<%- config.root %>js/totop.js"></script>
+<% } %>
+<% if (page.mathjax){ %>
+<%- partial('mathjax') %>
+<% } %>

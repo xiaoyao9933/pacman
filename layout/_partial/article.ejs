@@ -1,19 +1,30 @@
 <section class="<%= item.layout %>" itemscope itemprop="blogPost">
   <% if (item.link) { %> 
-    <a href="<%- item.link %>" target="_blank"> 
+    <t> <a href="<%- item.link %>" target="_blank"> 
   <% } else{ %>
-    <a href="<%- config.root %><%- item.path %>" title="<%= item.title %>" itemprop="url">
+    <t> <a href="<%- config.root %><%- item.path %>" title="<%= item.title %>" itemprop="url">
   <% } %>
-    <h1 itemprop="name"><%= item.title %></h1>
+    <h1 itemprop="name"><%= item.title %></h1></a>
     <% if (desc){ %>
      <% if(item.description){ %>
       <p itemprop="description" ><%- item.description %></p>
       <% } else if(item.excerpt){ %>
-       <p itemprop="description" ><%= strip_html(item.excerpt).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
+       <p itemprop="description" >
+         <article>
+         <div class="article-content">
+         <%- item.excerpt %>
+         </div>
+         </article>
+       </p>
       <% } else {%>
            <p itemprop="description" ><%= strip_html(item.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 140) %></p>
         <% } %>
     <% } %>
+    <% if (item.excerpt){ %>                                          
+      <p class="article-more-link">                                         
+      <a href="<%- config.root %><%- item.path %>#more"><%= __('excerpt_link') %></a>
+     </p>                                                                  
+    <% } %>
     <time datetime="<%= date_xml(item.date) %>" itemprop="datePublished"><%= item.date.format(config.date_format) %></time>
-  </a>
+  </t>
 </section>

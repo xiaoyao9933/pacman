@@ -21,7 +21,7 @@
   section.post
     background color-section
     margin-bottom 0.125em
-    a
+    t
       display block
       border-left 0.5em solid color-gray
       transition border-left .45s
@@ -40,6 +40,20 @@
         display block
         margin 0.5em 0
         font-size 0.5em
+.article-more-link a                                                            
+  display: inline-block                                                         
+  line-height: 1em                                                              
+  padding: 6px 15px                                                             
+  border-radius: 15px                                                           
+  background: color-background                                                  
+  color: color-grey                                                             
+  text-shadow: 0 1px #fff                                                       
+  text-decoration: none                                                         
+  &:hover                                                                       
+    background: color-blue                                                     
+    color: #fff                                                                 
+    text-decoration: none                                                       
+    text-shadow: 0 1px darken(color-blue, 20%)
 
 .moveMain
   margin-left 10% !important
